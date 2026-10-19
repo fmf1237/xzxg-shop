@@ -1,5 +1,27 @@
 # 项目部署与体验方式
 
+## ShopPilot 第八课：Python Agent HTTP 服务
+
+第八课使用现有 ReAct 循环提供 `POST /api/agent/chat` 和 `GET /health`。默认离线模式不需要网络、MySQL 或模型密钥。完整调用链和错误处理见 [第八课学习文档](docs/shoppilot-lesson08.md)。
+
+Windows PowerShell 在仓库根目录运行：
+
+```powershell
+python -m pip install -r agent-service/requirements.txt
+$env:SHOP_AGENT_MODE = "offline"
+python -m uvicorn app:app --app-dir agent-service --host 127.0.0.1 --port 8001
+```
+
+另开窗口测试：
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8001/health
+Invoke-RestMethod http://127.0.0.1:8001/api/agent/chat -Method Post -ContentType "application/json" -Body '{"message":"推荐运动鞋并查看第一款详情"}'
+python -m pytest agent-service/examples agent-service/evals agent-service/test_app.py -q
+```
+
+真实模式设置 `SHOP_AGENT_MODE=real`、`SHOP_API_BASE_URL`、`OPENAI_API_KEY`、`OPENAI_MODEL`，必要时设置 `OPENAI_BASE_URL`，然后重启服务。已启动 Go API 时可显式运行只读验证：`python agent-service/scripts/verify_go_products.py --base-url http://127.0.0.1:8080`。
+
 本文面向比赛评委、验收同学和项目演示人员，目标是用最短路径体验【小猪小狗 AI 导购系统】
 
 ## **一、最快体验方式**
