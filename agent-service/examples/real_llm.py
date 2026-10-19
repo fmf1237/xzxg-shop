@@ -19,7 +19,7 @@ class ModelCallError(Exception):
 class RealLLM:
     """对外返回与 FakeLLM 相同的 tool_call/final 动作。"""
 
-    def __init__(self, client=None, api_key=None, base_url=None, model=None):
+    def __init__(self, client=None, api_key=None, base_url=None, model=None, usage_callback=None):
         self.model = model or os.getenv("OPENAI_MODEL")
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         self.base_url = base_url or os.getenv("OPENAI_BASE_URL")
@@ -37,6 +37,7 @@ class RealLLM:
                 options["base_url"] = self.base_url
             client = OpenAI(**options)
         self.client = client
+        self.usage_callback = usage_callback
 
     @staticmethod
     def _api_messages(messages):
@@ -71,6 +72,13 @@ class RealLLM:
             name = type(exc).__name__
             code = {"APITimeoutError": "model_timeout", "APIConnectionError": "model_connection_error", "RateLimitError": "model_rate_limited"}.get(name, "model_api_error")
             raise ModelCallError(code) from exc
+        if self.usage_callback is not None:
+            usage = getattr(response, "usage", None)
+            self.usage_callback({
+                "prompt_tokens": getattr(usage, "prompt_tokens", None),
+                "completion_tokens": getattr(usage, "completion_tokens", None),
+                "total_tokens": getattr(usage, "total_tokens", None),
+            } if usage is not None else None)
         try:
             message = response.choices[0].message
             calls = message.tool_calls or []
