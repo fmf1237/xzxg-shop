@@ -70,7 +70,10 @@ def _execute(action, tools):
     except (TypeError, ValueError) as exc:
         return {"tool": name, "status": "error", "result": None, "message": f"工具参数错误：{exc}"}
     except Exception as exc:
-        return {"tool": name, "status": "error", "result": None, "message": f"工具执行异常：{exc}"}
+        observation = {"tool": name, "status": "error", "result": None, "message": f"工具执行异常：{exc}"}
+        if isinstance(getattr(exc, "code", None), str):
+            observation["error_code"] = exc.code
+        return observation
     return {"tool": name, "status": "empty" if result is None or result == [] else "ok", "result": result, "message": "无匹配结果" if result is None or result == [] else "执行成功"}
 
 
@@ -93,7 +96,8 @@ def run_react(user_input, llm=None, max_steps=5, tools=None):
             if code:
                 trace.append({"step": step, "model_input": model_input, "error": code})
                 return {"answer": f"模型调用失败：{code}", "trace": trace, "messages": messages, "error": code}
-            action = {"invalid_output": str(exc)}
+            # 未预料的模型异常不能把原始异常文本写入公开 Trace。
+            action = {"invalid_output": "模型决策异常"}
         record = {"step": step, "model_input": model_input, "model_output": deepcopy(action)}
         if not isinstance(action, dict) or action.get("type") not in ("tool_call", "final") or (
             action.get("type") == "final" and (not isinstance(action.get("text"), str) or not action["text"].strip())

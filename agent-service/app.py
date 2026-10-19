@@ -4,6 +4,8 @@ import os
 from pathlib import Path
 import re
 import sys
+from copy import deepcopy
+from threading import Lock, local
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
@@ -55,10 +57,14 @@ def create_app(mode=None, llm=None, product_tools=None, max_steps=5):
         raise ValueError("max_steps 必须是正整数")
     service = FastAPI(title="ShopPilot Agent", version="0.1.0")
     dependencies = {}
+    dependency_lock = Lock()
+    thread_tools = local()
 
     def get_dependencies():
         if "llm" not in dependencies:
-            dependencies["llm"] = llm if llm is not None else (FakeLLM() if selected_mode == "offline" else RealLLM())
+            with dependency_lock:
+                if "llm" not in dependencies:
+                    dependencies["llm"] = llm if llm is not None else (FakeLLM() if selected_mode == "offline" else RealLLM())
         if "tools" not in dependencies:
             if product_tools is not None:
                 source = product_tools
@@ -66,8 +72,11 @@ def create_app(mode=None, llm=None, product_tools=None, max_steps=5):
             elif selected_mode == "offline":
                 dependencies["tools"] = {"search_products": search_products, "get_product_detail": get_product_detail}
             else:
-                source = ProductAPITools()
-                dependencies["tools"] = {"search_products": source.search_products, "get_product_detail": source.get_product_detail}
+                # requests.Session 按线程复用，避免不同工作线程同时操作一个会话。
+                if not hasattr(thread_tools, "source"):
+                    thread_tools.source = ProductAPITools()
+                source = thread_tools.source
+                return dependencies["llm"], {"search_products": source.search_products, "get_product_detail": source.get_product_detail}
         return dependencies["llm"], dependencies["tools"]
 
     @service.exception_handler(RequestValidationError)
@@ -81,29 +90,53 @@ def create_app(mode=None, llm=None, product_tools=None, max_steps=5):
     @service.post("/api/agent/chat")
     def chat(payload: ChatRequest):
         request_id = uuid4().hex
+        show_trace = os.getenv("SHOP_AGENT_TRACE_ENABLED", "true").lower() == "true"
+
+        def reply(answer, status, trace, http_status=200):
+            return _reply(answer, status, trace if show_trace else [], request_id, http_status)
+
         if not payload.message.strip():
-            return _reply("请求参数错误：message 不能为空。", "invalid_request", [], request_id, 422)
+            return reply("请求参数错误：message 不能为空。", "invalid_request", [], 422)
         try:
             active_llm, tools = get_dependencies()
         except Exception as exc:
             code = getattr(exc, "code", "configuration_error")
-            return _reply(f"服务配置错误：{code}", "configuration_error", [], request_id, 503)
-        result = run_react(payload.message, llm=active_llm, max_steps=max_steps, tools=tools)
-        trace = result["trace"]
+            return reply(f"服务配置错误：{code}", "configuration_error", [], 503)
+        try:
+            result = run_react(payload.message, llm=active_llm, max_steps=max_steps, tools=tools)
+        except Exception:
+            # 未预料异常不回传异常文本或堆栈。
+            return reply("服务处理失败，请稍后重试。", "internal_error", [], 500)
+        trace = deepcopy(result["trace"])
+        known_tool_codes = {"timeout", "connection_error", "request_error", "invalid_data", "pagination_limit", "http_404", "http_500", "http_502", "http_503", "http_504"}
+        for record in trace:
+            observation = record.get("observation")
+            if observation and observation.get("status") == "error" and observation.get("message", "").startswith("工具执行异常：") and observation.get("error_code") not in known_tool_codes:
+                observation["message"] = "工具执行异常"
+                observation.pop("error_code", None)
+            for message in record.get("model_input", []):
+                content = message.get("content")
+                if message.get("role") == "tool" and isinstance(content, dict) and content.get("message", "").startswith("工具执行异常：") and content.get("error_code") not in known_tool_codes:
+                    content["message"] = "工具执行异常"
+                    content.pop("error_code", None)
         error = result["error"]
         if error == "max_steps_exceeded":
-            return _reply(result["answer"], error, trace, request_id, 504)
+            return reply(result["answer"], error, trace, 504)
         if error:
             if error.startswith("model_") or error in ("invalid_model_response", "multiple_tool_calls", "missing_tool_call_id"):
                 status = "model_error"
             else:
                 status = "invalid_action"
-            return _reply(result["answer"], status, trace, request_id, 502)
+            return reply(result["answer"], status, trace, 502)
         # FakeLLM 可能在失败 Observation 后输出 final；不能把它当作查询成功。
         failed = [record["observation"] for record in trace if record.get("observation", {}).get("status") == "error"]
         if failed:
-            return _reply(result["answer"], "tool_error", trace, request_id, 502)
-        return _reply(result["answer"], "ok", trace, request_id)
+            for record in trace:
+                output = record.get("model_output")
+                if isinstance(output, dict) and output.get("type") == "final":
+                    output["text"] = "商品查询失败，请稍后重试。"
+            return reply("商品查询失败，请稍后重试。", "tool_error", trace, 502)
+        return reply(result["answer"], "ok", trace)
 
     return service
 
