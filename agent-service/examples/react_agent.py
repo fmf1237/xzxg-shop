@@ -89,6 +89,10 @@ def run_react(user_input, llm=None, max_steps=5, tools=None):
         try:
             action = llm.decide(deepcopy(messages))
         except Exception as exc:
+            code = getattr(exc, "code", None)
+            if code:
+                trace.append({"step": step, "model_input": model_input, "error": code})
+                return {"answer": f"模型调用失败：{code}", "trace": trace, "messages": messages, "error": code}
             action = {"invalid_output": str(exc)}
         record = {"step": step, "model_input": model_input, "model_output": deepcopy(action)}
         if not isinstance(action, dict) or action.get("type") not in ("tool_call", "final") or (
@@ -106,5 +110,8 @@ def run_react(user_input, llm=None, max_steps=5, tools=None):
         observation = _execute(action, tools)
         record["observation"] = deepcopy(observation)
         trace.append(record)
-        messages.append({"role": "tool", "content": deepcopy(observation)})
+        tool_message = {"role": "tool", "content": deepcopy(observation)}
+        if action.get("call_id"):
+            tool_message["tool_call_id"] = action["call_id"]
+        messages.append(tool_message)
     return {"answer": "已达到最大执行步数，尚未得到最终回答。", "trace": trace, "messages": messages, "error": "max_steps_exceeded"}
