@@ -1,0 +1,18 @@
+{
+  "dataset_type": "synthetic_test_data",
+  "description": "为第五课构造的固定离线商品；不是线上或 MySQL 实际商品",
+  "products": [
+    {"id":"s01","name":"轻便运动鞋","category":"运动鞋","brand":"迅步","price":"199.00","selling_points":["轻便","夏季通勤"]},
+    {"id":"s02","name":"缓震运动鞋","category":"运动鞋","brand":"迅步","price":"399.00","selling_points":["缓震","跑步"]},
+    {"id":"s03","name":"透气运动鞋","category":"运动鞋","brand":"飞跃","price":"259.00","selling_points":["透气","夏季"]},
+    {"id":"s04","name":"防水运动鞋","category":"运动鞋","brand":"飞跃","price":"329.00","selling_points":["防水","户外"]},
+    {"id":"s05","name":"儿童运动鞋","category":"运动鞋","brand":"童趣","price":"159.00","selling_points":["儿童","耐磨"]},
+    {"id":"s06","name":"竞速运动鞋","category":"运动鞋","brand":"迅步","price":"599.00","selling_points":["竞速","轻量"]},
+    {"id":"s07","name":"保湿面霜","category":"面霜","brand":"润颜","price":"259.00","selling_points":["保湿","干皮"]},
+    {"id":"s08","name":"敏感肌面霜","category":"面霜","brand":"清润","price":"299.00","selling_points":["敏感肌","温和"]},
+    {"id":"s09","name":"防晒乳","category":"防晒","brand":"润颜","price":"129.00","selling_points":["防晒","清爽"]},
+    {"id":"s10","name":"机械键盘","category":"键盘","brand":"键侠","price":"299.00","selling_points":["机械轴","办公"]},
+    {"id":"s11","name":"静音键盘","category":"键盘","brand":"键侠","price":"189.00","selling_points":["静音","办公"]},
+    {"id":"s12","name":"无线鼠标","category":"鼠标","brand":"键侠","price":"99.00","selling_points":["无线","便携"]}
+  ]
+}

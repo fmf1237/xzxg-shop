@@ -1,0 +1,736 @@
+{
+  "dataset_type": "synthetic_test_data",
+  "baseline": "single-substring-offline-keyword",
+  "ordering_note": "fixture 固定顺序，仅用于可重复的 Top-K 诊断，不代表 Go API 或模型相关度排序",
+  "k": 3,
+  "summary": {
+    "precision_at_k": 0.3086,
+    "recall_at_k": 0.6173,
+    "hit_at_k": 0.6667,
+    "mrr": 0.642,
+    "ndcg_at_k": 0.6323,
+    "total_cases": 30,
+    "positive_cases": 27,
+    "no_match_cases": 3,
+    "correct_rejection_rate": 1.0,
+    "failure_cases": 13
+  },
+  "cases": [
+    {
+      "case_id": "c01",
+      "query": "轻便运动鞋",
+      "test_type": "exact",
+      "expected_product_ids": [
+        "s01"
+      ],
+      "retrieved_product_ids": [
+        "s01"
+      ],
+      "top_k_product_ids": [
+        "s01"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c02",
+      "query": "缓震运动鞋",
+      "test_type": "exact",
+      "expected_product_ids": [
+        "s02"
+      ],
+      "retrieved_product_ids": [
+        "s02"
+      ],
+      "top_k_product_ids": [
+        "s02"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c03",
+      "query": "保湿面霜",
+      "test_type": "exact",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "retrieved_product_ids": [
+        "s07"
+      ],
+      "top_k_product_ids": [
+        "s07"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c04",
+      "query": "机械键盘",
+      "test_type": "exact",
+      "expected_product_ids": [
+        "s10"
+      ],
+      "retrieved_product_ids": [
+        "s10"
+      ],
+      "top_k_product_ids": [
+        "s10"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c05",
+      "query": "防晒乳",
+      "test_type": "exact",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "retrieved_product_ids": [
+        "s09"
+      ],
+      "top_k_product_ids": [
+        "s09"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c06",
+      "query": "运动鞋",
+      "test_type": "category",
+      "expected_product_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "retrieved_product_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "top_k_product_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "检索结果不完整",
+      "recommendation": "检查 Top-K 截断与候选覆盖率",
+      "error": null
+    },
+    {
+      "case_id": "c07",
+      "query": "面霜",
+      "test_type": "category",
+      "expected_product_ids": [
+        "s07",
+        "s08"
+      ],
+      "retrieved_product_ids": [
+        "s07",
+        "s08"
+      ],
+      "top_k_product_ids": [
+        "s07",
+        "s08"
+      ],
+      "metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c08",
+      "query": "键盘",
+      "test_type": "category",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "retrieved_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "top_k_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c09",
+      "query": "运动鞋预算200元",
+      "test_type": "budget",
+      "expected_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "retrieved_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "top_k_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c10",
+      "query": "面霜预算280元",
+      "test_type": "budget",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "retrieved_product_ids": [
+        "s07"
+      ],
+      "top_k_product_ids": [
+        "s07"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c11",
+      "query": "键盘预算200元",
+      "test_type": "budget",
+      "expected_product_ids": [
+        "s11"
+      ],
+      "retrieved_product_ids": [
+        "s11"
+      ],
+      "top_k_product_ids": [
+        "s11"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c12",
+      "query": "便宜的防晒乳",
+      "test_type": "budget",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "retrieved_product_ids": [
+        "s09"
+      ],
+      "top_k_product_ids": [
+        "s09"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c13",
+      "query": "夏天通勤穿的鞋",
+      "test_type": "vague",
+      "expected_product_ids": [
+        "s01",
+        "s03"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "关键词完全不匹配",
+      "recommendation": "分析用户表述与商品名称/卖点的词汇差异",
+      "error": null
+    },
+    {
+      "case_id": "c14",
+      "query": "适合跑步的鞋",
+      "test_type": "vague",
+      "expected_product_ids": [
+        "s02",
+        "s06"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "关键词完全不匹配",
+      "recommendation": "分析用户表述与商品名称/卖点的词汇差异",
+      "error": null
+    },
+    {
+      "case_id": "c15",
+      "query": "干皮护肤推荐",
+      "test_type": "vague",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "关键词完全不匹配",
+      "recommendation": "分析用户表述与商品名称/卖点的词汇差异",
+      "error": null
+    },
+    {
+      "case_id": "c16",
+      "query": "打字不吵的设备",
+      "test_type": "vague",
+      "expected_product_ids": [
+        "s11"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "关键词完全不匹配",
+      "recommendation": "分析用户表述与商品名称/卖点的词汇差异",
+      "error": null
+    },
+    {
+      "case_id": "c17",
+      "query": "跑鞋",
+      "test_type": "synonym",
+      "expected_product_ids": [
+        "s02",
+        "s06"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "同义词无法召回",
+      "recommendation": "建立可审核的同义词表并比较召回变化",
+      "error": null
+    },
+    {
+      "case_id": "c18",
+      "query": "防水球鞋",
+      "test_type": "synonym",
+      "expected_product_ids": [
+        "s04"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "同义词无法召回",
+      "recommendation": "建立可审核的同义词表并比较召回变化",
+      "error": null
+    },
+    {
+      "case_id": "c19",
+      "query": "电脑打字板",
+      "test_type": "synonym",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "同义词无法召回",
+      "recommendation": "建立可审核的同义词表并比较召回变化",
+      "error": null
+    },
+    {
+      "case_id": "c20",
+      "query": "脸部保湿霜",
+      "test_type": "synonym",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "同义词无法召回",
+      "recommendation": "建立可审核的同义词表并比较召回变化",
+      "error": null
+    },
+    {
+      "case_id": "c21",
+      "query": "迅步运动鞋",
+      "test_type": "brand",
+      "expected_product_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "retrieved_product_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "top_k_product_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 0.6666666666666666,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.7653606369886217
+      },
+      "failure_category": "多条件约束不足",
+      "recommendation": "在候选过滤中显式执行品牌约束",
+      "error": null
+    },
+    {
+      "case_id": "c22",
+      "query": "飞跃运动鞋",
+      "test_type": "brand",
+      "expected_product_ids": [
+        "s03",
+        "s04"
+      ],
+      "retrieved_product_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "top_k_product_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_k": 0.3065735963827292
+      },
+      "failure_category": "多条件约束不足",
+      "recommendation": "在候选过滤中显式执行品牌约束",
+      "error": null
+    },
+    {
+      "case_id": "c23",
+      "query": "键侠键盘",
+      "test_type": "brand",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "retrieved_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "top_k_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c24",
+      "query": "迅步运动鞋预算300元",
+      "test_type": "multi_condition",
+      "expected_product_ids": [
+        "s01"
+      ],
+      "retrieved_product_ids": [
+        "s01",
+        "s03",
+        "s05"
+      ],
+      "top_k_product_ids": [
+        "s01",
+        "s03",
+        "s05"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "多条件约束不足",
+      "recommendation": "在候选过滤中显式执行品牌约束",
+      "error": null
+    },
+    {
+      "case_id": "c25",
+      "query": "飞跃防水运动鞋预算350元",
+      "test_type": "multi_condition",
+      "expected_product_ids": [
+        "s04"
+      ],
+      "retrieved_product_ids": [
+        "s04"
+      ],
+      "top_k_product_ids": [
+        "s04"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    },
+    {
+      "case_id": "c26",
+      "query": "敏感肌面霜预算200元",
+      "test_type": "no_match",
+      "expected_product_ids": [],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "failure_category": "正确拒答：预算下无商品",
+      "recommendation": "解释价格门槛，避免虚构低价商品",
+      "error": null
+    },
+    {
+      "case_id": "c27",
+      "query": "无人机",
+      "test_type": "no_match",
+      "expected_product_ids": [],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "failure_category": "正确拒答：数据中无商品",
+      "recommendation": "确认商品库覆盖范围，不虚构商品",
+      "error": null
+    },
+    {
+      "case_id": "c28",
+      "query": "运动鞋预算100元",
+      "test_type": "no_match",
+      "expected_product_ids": [],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "failure_category": "正确拒答：预算下无商品",
+      "recommendation": "解释价格门槛，避免虚构低价商品",
+      "error": null
+    },
+    {
+      "case_id": "c29",
+      "query": "便宜运动鞋但最多看一页",
+      "test_type": "pagination",
+      "expected_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "retrieved_product_ids": [],
+      "top_k_product_ids": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "failure_category": "分页限制",
+      "recommendation": "缩小检索词或提高安全分页上限，并完整读取结果",
+      "error": "pagination_limit"
+    },
+    {
+      "case_id": "c30",
+      "query": "润颜防晒乳预算150元",
+      "test_type": "multi_condition",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "retrieved_product_ids": [
+        "s09"
+      ],
+      "top_k_product_ids": [
+        "s09"
+      ],
+      "metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "failure_category": "通过",
+      "recommendation": "保持现有基线",
+      "error": null
+    }
+  ]
+}
