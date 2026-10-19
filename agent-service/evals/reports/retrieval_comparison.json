@@ -1,0 +1,4204 @@
+{
+  "dataset_type": "synthetic_test_data",
+  "k": 3,
+  "baseline_source": "reports\\retrieval_baseline.json",
+  "inference_inputs": "raw query + catalog metadata/products only; labels and constraints used after retrieval for scoring",
+  "baseline_summary": {
+    "precision_at_k": 0.3086,
+    "recall_at_k": 0.6173,
+    "hit_at_k": 0.6667,
+    "mrr": 0.642,
+    "ndcg_at_k": 0.6323,
+    "correct_rejection_rate": 1.0,
+    "false_positive_at_k": 5,
+    "hard_constraint_satisfaction_rate": 0.7222,
+    "hard_constraint_checked_items": 18,
+    "explicit_hard_constraint_satisfaction_rate": 0.8333,
+    "explicit_hard_constraint_checked_items": 30
+  },
+  "improved_summary": {
+    "precision_at_k": 0.5062,
+    "recall_at_k": 0.9815,
+    "hit_at_k": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_k": 1.0,
+    "correct_rejection_rate": 1.0,
+    "false_positive_at_k": 1,
+    "hard_constraint_satisfaction_rate": 0.9444,
+    "hard_constraint_checked_items": 18,
+    "explicit_hard_constraint_satisfaction_rate": 1.0,
+    "explicit_hard_constraint_checked_items": 36
+  },
+  "regressions": [],
+  "focus_cases": [
+    {
+      "case_id": "c13",
+      "query": "夏天通勤穿的鞋",
+      "expected_product_ids": [
+        "s01",
+        "s03"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s01",
+        "s03"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "夏季",
+            "通勤"
+          ],
+          "diagnostics": [
+            "generic_footwear_not_hard"
+          ],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s03"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [
+              "夏季",
+              "通勤"
+            ],
+            "score": 2,
+            "price": "199.00"
+          },
+          {
+            "id": "s03",
+            "soft_hits": [
+              "夏季"
+            ],
+            "score": 1,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s03"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c17",
+      "query": "跑鞋",
+      "expected_product_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "跑步",
+            "竞速"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s02",
+            "soft_hits": [
+              "跑步"
+            ],
+            "score": 1,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [
+              "竞速"
+            ],
+            "score": 1,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s02",
+          "s06"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c21",
+      "query": "迅步运动鞋",
+      "expected_product_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "improved_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 0.6666666666666666,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.7653606369886217
+      },
+      "improved_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 0.3333,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.2346
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "迅步",
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s03",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          },
+          {
+            "id": "s02",
+            "soft_hits": [],
+            "score": 0,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [],
+            "score": 0,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s02",
+          "s06"
+        ]
+      }
+    },
+    {
+      "case_id": "c22",
+      "query": "飞跃运动鞋",
+      "expected_product_ids": [
+        "s03",
+        "s04"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "improved_ids": [
+        "s03",
+        "s04"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_k": 0.3065735963827292
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 0.5,
+        "hit_at_k": 0.0,
+        "mrr": 0.6667,
+        "ndcg_at_k": 0.6934
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "飞跃",
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s03",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          },
+          {
+            "id": "s04",
+            "soft_hits": [],
+            "score": 0,
+            "price": "329.00"
+          }
+        ],
+        "final_ids": [
+          "s03",
+          "s04"
+        ]
+      }
+    },
+    {
+      "case_id": "c24",
+      "query": "迅步运动鞋预算300元",
+      "expected_product_ids": [
+        "s01"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s03",
+        "s05"
+      ],
+      "improved_ids": [
+        "s01"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "迅步",
+          "max_price": 300,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s02",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "brand_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          }
+        ],
+        "final_ids": [
+          "s01"
+        ]
+      }
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "c01",
+      "query": "轻便运动鞋",
+      "expected_product_ids": [
+        "s01"
+      ],
+      "baseline_ids": [
+        "s01"
+      ],
+      "improved_ids": [
+        "s01"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "轻便"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [
+              "轻便"
+            ],
+            "score": 1,
+            "price": "199.00"
+          }
+        ],
+        "final_ids": [
+          "s01"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c02",
+      "query": "缓震运动鞋",
+      "expected_product_ids": [
+        "s02"
+      ],
+      "baseline_ids": [
+        "s02"
+      ],
+      "improved_ids": [
+        "s02"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "缓震"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s02",
+            "soft_hits": [
+              "缓震"
+            ],
+            "score": 1,
+            "price": "399.00"
+          }
+        ],
+        "final_ids": [
+          "s02"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c03",
+      "query": "保湿面霜",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "baseline_ids": [
+        "s07"
+      ],
+      "improved_ids": [
+        "s07"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "面霜",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "保湿"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s07",
+            "soft_hits": [
+              "保湿"
+            ],
+            "score": 1,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s07"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c04",
+      "query": "机械键盘",
+      "expected_product_ids": [
+        "s10"
+      ],
+      "baseline_ids": [
+        "s10"
+      ],
+      "improved_ids": [
+        "s10"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": "机械",
+          "category": "键盘",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s10"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s10",
+            "soft_hits": [],
+            "score": 0,
+            "price": "299.00"
+          }
+        ],
+        "final_ids": [
+          "s10"
+        ]
+      }
+    },
+    {
+      "case_id": "c05",
+      "query": "防晒乳",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "baseline_ids": [
+        "s09"
+      ],
+      "improved_ids": [
+        "s09"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": "乳",
+          "category": "防晒",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "防晒"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s09"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s09",
+            "soft_hits": [
+              "防晒"
+            ],
+            "score": 1,
+            "price": "129.00"
+          }
+        ],
+        "final_ids": [
+          "s09"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c06",
+      "query": "运动鞋",
+      "expected_product_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "improved_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          },
+          {
+            "id": "s02",
+            "soft_hits": [],
+            "score": 0,
+            "price": "399.00"
+          },
+          {
+            "id": "s03",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          },
+          {
+            "id": "s04",
+            "soft_hits": [],
+            "score": 0,
+            "price": "329.00"
+          },
+          {
+            "id": "s05",
+            "soft_hits": [],
+            "score": 0,
+            "price": "159.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [],
+            "score": 0,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s02",
+          "s03"
+        ]
+      }
+    },
+    {
+      "case_id": "c07",
+      "query": "面霜",
+      "expected_product_ids": [
+        "s07",
+        "s08"
+      ],
+      "baseline_ids": [
+        "s07",
+        "s08"
+      ],
+      "improved_ids": [
+        "s07",
+        "s08"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "面霜",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s07",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          },
+          {
+            "id": "s08",
+            "soft_hits": [],
+            "score": 0,
+            "price": "299.00"
+          }
+        ],
+        "final_ids": [
+          "s07",
+          "s08"
+        ]
+      }
+    },
+    {
+      "case_id": "c08",
+      "query": "键盘",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_ids": [
+        "s10",
+        "s11"
+      ],
+      "improved_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "键盘",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s10",
+            "soft_hits": [],
+            "score": 0,
+            "price": "299.00"
+          },
+          {
+            "id": "s11",
+            "soft_hits": [],
+            "score": 0,
+            "price": "189.00"
+          }
+        ],
+        "final_ids": [
+          "s10",
+          "s11"
+        ]
+      }
+    },
+    {
+      "case_id": "c09",
+      "query": "运动鞋预算200元",
+      "expected_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s05"
+      ],
+      "improved_ids": [
+        "s01",
+        "s05"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": 200,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s02",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          },
+          {
+            "id": "s05",
+            "soft_hits": [],
+            "score": 0,
+            "price": "159.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s05"
+        ]
+      }
+    },
+    {
+      "case_id": "c10",
+      "query": "面霜预算280元",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "baseline_ids": [
+        "s07"
+      ],
+      "improved_ids": [
+        "s07"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "面霜",
+          "brand": null,
+          "max_price": 280,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s07",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s07"
+        ]
+      }
+    },
+    {
+      "case_id": "c11",
+      "query": "键盘预算200元",
+      "expected_product_ids": [
+        "s11"
+      ],
+      "baseline_ids": [
+        "s11"
+      ],
+      "improved_ids": [
+        "s11"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "键盘",
+          "brand": null,
+          "max_price": 200,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s11",
+            "soft_hits": [],
+            "score": 0,
+            "price": "189.00"
+          }
+        ],
+        "final_ids": [
+          "s11"
+        ]
+      }
+    },
+    {
+      "case_id": "c12",
+      "query": "便宜的防晒乳",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "baseline_ids": [
+        "s09"
+      ],
+      "improved_ids": [
+        "s09"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": "乳",
+          "category": "防晒",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "防晒",
+            "低价"
+          ],
+          "diagnostics": [
+            "qualitative_price_not_hard_limit"
+          ],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s09"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s09",
+            "soft_hits": [
+              "防晒"
+            ],
+            "score": 1,
+            "price": "129.00"
+          }
+        ],
+        "final_ids": [
+          "s09"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c13",
+      "query": "夏天通勤穿的鞋",
+      "expected_product_ids": [
+        "s01",
+        "s03"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s01",
+        "s03"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "夏季",
+            "通勤"
+          ],
+          "diagnostics": [
+            "generic_footwear_not_hard"
+          ],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s03"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [
+              "夏季",
+              "通勤"
+            ],
+            "score": 2,
+            "price": "199.00"
+          },
+          {
+            "id": "s03",
+            "soft_hits": [
+              "夏季"
+            ],
+            "score": 1,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s03"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c14",
+      "query": "适合跑步的鞋",
+      "expected_product_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "跑步",
+            "竞速"
+          ],
+          "diagnostics": [
+            "generic_footwear_not_hard"
+          ],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s02",
+          "s06"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s02",
+            "soft_hits": [
+              "跑步"
+            ],
+            "score": 1,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [
+              "竞速"
+            ],
+            "score": 1,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s02",
+          "s06"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c15",
+      "query": "干皮护肤推荐",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s07"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "干皮"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s07"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s07",
+            "soft_hits": [
+              "干皮"
+            ],
+            "score": 1,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s07"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c16",
+      "query": "打字不吵的设备",
+      "expected_product_ids": [
+        "s11"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s11"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "静音"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s11"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s11",
+            "soft_hits": [
+              "静音"
+            ],
+            "score": 1,
+            "price": "189.00"
+          }
+        ],
+        "final_ids": [
+          "s11"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c17",
+      "query": "跑鞋",
+      "expected_product_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s02",
+        "s06"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "跑步",
+            "竞速"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s02",
+            "soft_hits": [
+              "跑步"
+            ],
+            "score": 1,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [
+              "竞速"
+            ],
+            "score": 1,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s02",
+          "s06"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c18",
+      "query": "防水球鞋",
+      "expected_product_ids": [
+        "s04"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s04"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "防水"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s04",
+            "soft_hits": [
+              "防水"
+            ],
+            "score": 1,
+            "price": "329.00"
+          }
+        ],
+        "final_ids": [
+          "s04"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c19",
+      "query": "电脑打字板",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "键盘",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s10",
+            "soft_hits": [],
+            "score": 0,
+            "price": "299.00"
+          },
+          {
+            "id": "s11",
+            "soft_hits": [],
+            "score": 0,
+            "price": "189.00"
+          }
+        ],
+        "final_ids": [
+          "s10",
+          "s11"
+        ]
+      }
+    },
+    {
+      "case_id": "c20",
+      "query": "脸部保湿霜",
+      "expected_product_ids": [
+        "s07"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s07"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "面霜",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "保湿"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s07",
+            "soft_hits": [
+              "保湿"
+            ],
+            "score": 1,
+            "price": "259.00"
+          }
+        ],
+        "final_ids": [
+          "s07"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c21",
+      "query": "迅步运动鞋",
+      "expected_product_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "improved_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 0.6666666666666666,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.7653606369886217
+      },
+      "improved_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 0.3333,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.2346
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "迅步",
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s03",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          },
+          {
+            "id": "s02",
+            "soft_hits": [],
+            "score": 0,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [],
+            "score": 0,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s01",
+          "s02",
+          "s06"
+        ]
+      }
+    },
+    {
+      "case_id": "c22",
+      "query": "飞跃运动鞋",
+      "expected_product_ids": [
+        "s03",
+        "s04"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "improved_ids": [
+        "s03",
+        "s04"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 0.5,
+        "hit_at_k": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_k": 0.3065735963827292
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.3333,
+        "recall_at_k": 0.5,
+        "hit_at_k": 0.0,
+        "mrr": 0.6667,
+        "ndcg_at_k": 0.6934
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "飞跃",
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s03",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          },
+          {
+            "id": "s04",
+            "soft_hits": [],
+            "score": 0,
+            "price": "329.00"
+          }
+        ],
+        "final_ids": [
+          "s03",
+          "s04"
+        ]
+      }
+    },
+    {
+      "case_id": "c23",
+      "query": "键侠键盘",
+      "expected_product_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_ids": [
+        "s10",
+        "s11"
+      ],
+      "improved_ids": [
+        "s10",
+        "s11"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "键盘",
+          "brand": "键侠",
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s10",
+            "soft_hits": [],
+            "score": 0,
+            "price": "299.00"
+          },
+          {
+            "id": "s11",
+            "soft_hits": [],
+            "score": 0,
+            "price": "189.00"
+          }
+        ],
+        "final_ids": [
+          "s10",
+          "s11"
+        ]
+      }
+    },
+    {
+      "case_id": "c24",
+      "query": "迅步运动鞋预算300元",
+      "expected_product_ids": [
+        "s01"
+      ],
+      "baseline_ids": [
+        "s01",
+        "s03",
+        "s05"
+      ],
+      "improved_ids": [
+        "s01"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "迅步",
+          "max_price": 300,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s02",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "brand_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          }
+        ],
+        "final_ids": [
+          "s01"
+        ]
+      }
+    },
+    {
+      "case_id": "c25",
+      "query": "飞跃防水运动鞋预算350元",
+      "expected_product_ids": [
+        "s04"
+      ],
+      "baseline_ids": [
+        "s04"
+      ],
+      "improved_ids": [
+        "s04"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": "飞跃",
+          "max_price": 350,
+          "soft_requirements": [
+            "防水"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "brand_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "brand_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch",
+              "brand_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s04",
+            "soft_hits": [
+              "防水"
+            ],
+            "score": 1,
+            "price": "329.00"
+          }
+        ],
+        "final_ids": [
+          "s04"
+        ],
+        "soft_match_gate": true
+      }
+    },
+    {
+      "case_id": "c26",
+      "query": "敏感肌面霜预算200元",
+      "expected_product_ids": [],
+      "baseline_ids": [],
+      "improved_ids": [],
+      "baseline_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "improved_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "metric_delta": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "面霜",
+          "brand": null,
+          "max_price": 200,
+          "soft_requirements": [
+            "敏感肌"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [],
+        "final_ids": [],
+        "soft_match_gate": false
+      }
+    },
+    {
+      "case_id": "c27",
+      "query": "无人机",
+      "expected_product_ids": [],
+      "baseline_ids": [],
+      "improved_ids": [],
+      "baseline_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "improved_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "metric_delta": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": "无人机",
+          "category": null,
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [],
+          "diagnostics": [
+            "unrecognized_term"
+          ],
+          "ambiguous": true
+        },
+        "candidates": [],
+        "filtered": [],
+        "ranking": [],
+        "final_ids": []
+      }
+    },
+    {
+      "case_id": "c28",
+      "query": "运动鞋预算100元",
+      "expected_product_ids": [],
+      "baseline_ids": [],
+      "improved_ids": [],
+      "baseline_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "improved_metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "metric_delta": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": 100,
+          "soft_requirements": [],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s01",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s02",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s03",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s04",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s05",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s06",
+            "reasons": [
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch",
+              "over_budget"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [],
+        "final_ids": []
+      }
+    },
+    {
+      "case_id": "c29",
+      "query": "便宜运动鞋但最多看一页",
+      "expected_product_ids": [
+        "s01",
+        "s05"
+      ],
+      "baseline_ids": [],
+      "improved_ids": [
+        "s05",
+        "s01",
+        "s03"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.6667,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": null,
+          "category": "运动鞋",
+          "brand": null,
+          "max_price": null,
+          "soft_requirements": [
+            "低价"
+          ],
+          "diagnostics": [
+            "qualitative_price_not_hard_limit"
+          ],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "s06",
+          "s07",
+          "s08",
+          "s09",
+          "s10",
+          "s11",
+          "s12"
+        ],
+        "filtered": [
+          {
+            "id": "s07",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s08",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s09",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s10",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s11",
+            "reasons": [
+              "category_mismatch"
+            ]
+          },
+          {
+            "id": "s12",
+            "reasons": [
+              "category_mismatch"
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "id": "s05",
+            "soft_hits": [],
+            "score": 0,
+            "price": "159.00"
+          },
+          {
+            "id": "s01",
+            "soft_hits": [],
+            "score": 0,
+            "price": "199.00"
+          },
+          {
+            "id": "s03",
+            "soft_hits": [],
+            "score": 0,
+            "price": "259.00"
+          },
+          {
+            "id": "s04",
+            "soft_hits": [],
+            "score": 0,
+            "price": "329.00"
+          },
+          {
+            "id": "s02",
+            "soft_hits": [],
+            "score": 0,
+            "price": "399.00"
+          },
+          {
+            "id": "s06",
+            "soft_hits": [],
+            "score": 0,
+            "price": "599.00"
+          }
+        ],
+        "final_ids": [
+          "s05",
+          "s01",
+          "s03"
+        ],
+        "soft_match_gate": false
+      }
+    },
+    {
+      "case_id": "c30",
+      "query": "润颜防晒乳预算150元",
+      "expected_product_ids": [
+        "s09"
+      ],
+      "baseline_ids": [
+        "s09"
+      ],
+      "improved_ids": [
+        "s09"
+      ],
+      "baseline_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "improved_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "metric_delta": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0
+      },
+      "regressed": false,
+      "trace": {
+        "parsed_query": {
+          "keyword": "乳",
+          "category": "防晒",
+          "brand": "润颜",
+          "max_price": 150,
+          "soft_requirements": [
+            "防晒"
+          ],
+          "diagnostics": [],
+          "ambiguous": false
+        },
+        "candidates": [
+          "s09"
+        ],
+        "filtered": [],
+        "ranking": [
+          {
+            "id": "s09",
+            "soft_hits": [
+              "防晒"
+            ],
+            "score": 1,
+            "price": "129.00"
+          }
+        ],
+        "final_ids": [
+          "s09"
+        ],
+        "soft_match_gate": true
+      }
+    }
+  ]
+}
