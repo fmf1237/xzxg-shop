@@ -18,7 +18,7 @@ def retrieve(products, parsed, k=3):
         soft_hits = [term for term in soft if term != "低价" and term.casefold() in searchable]
         if keyword and keyword not in searchable:
             continue
-        if not keyword and not parsed["category"] and not parsed["brand"] and not soft_hits:
+        if not keyword and not parsed["category"] and not parsed["brand"] and not soft:
             continue
         trace["candidates"].append(product["id"])
         reasons = []
@@ -33,12 +33,7 @@ def retrieve(products, parsed, k=3):
             continue
         trace["ranking"].append({"id": product["id"], "soft_hits": soft_hits, "score": len(soft_hits), "price": product["price"]})
 
-    # 有明确软需求且至少有一个匹配时，只展示满足软需求的候选；若无命中则保留硬约束候选并标注回退。
-    if any(term != "低价" for term in soft) and any(item["score"] > 0 for item in trace["ranking"]):
-        trace["ranking"] = [item for item in trace["ranking"] if item["score"] > 0]
-        trace["soft_match_gate"] = True
-    elif soft:
-        trace["soft_match_gate"] = False
+    # 软需求只改变排序；已满足硬约束的候选不会因没有软命中而被删掉。
     cheap = "低价" in soft
     trace["ranking"].sort(key=lambda item: (-item["score"], Decimal(item["price"]) if cheap else Decimal(0), item["id"]))
     trace["final_ids"] = [item["id"] for item in trace["ranking"][:k]]
