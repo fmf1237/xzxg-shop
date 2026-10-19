@@ -2,15 +2,27 @@
 
 import sys
 from pathlib import Path
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
 from verify_real_llm_e2e import check_case, mentions_price  # noqa: E402
 
 
-def test_price_comparison_accepts_format_variants():
-    assert mentions_price("价格是 129 元", "129.00")
-    assert mentions_price("￥129.00", "129.00")
-    assert not mentions_price("价格是 399 元", "129.00")
+@pytest.mark.parametrize("answer", [
+    "价格是 129 元", "￥129.00", "¥ 129.00", "129.00 元",
+    "价格：129.00", "价格: 129.00", "售价:129.00", "售价： 129.00",
+])
+def test_price_comparison_accepts_format_variants(answer):
+    assert mentions_price(answer, "129.00")
+
+
+@pytest.mark.parametrize("answer", [
+    "价格：399.00", "售价:399.00", "库存 129 件", "库存：129.00",
+    "型号 Mouse 129.00", "Token 数量：129", "共消耗 129 Tokens", "Quiet Mouse S，库存充足",
+    "价格：129.001", "售价: 129.00.5", "¥129.00.5",
+])
+def test_price_comparison_rejects_other_numbers(answer):
+    assert not mentions_price(answer, "129.00")
 
 
 def test_detail_requires_grounded_observations():

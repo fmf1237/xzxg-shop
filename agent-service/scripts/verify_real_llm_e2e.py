@@ -28,8 +28,9 @@ NO_RESULT_WORDS = ("没有", "未找到", "找不到", "无匹配", "不存在",
 
 
 def mentions_price(answer, price):
-    amounts = re.findall(r"(?:¥|￥)\s*(\d+(?:\.\d+)?)", answer)
+    amounts = re.findall(r"(?:¥|￥)\s*(\d+(?:\.\d+)?)(?![\d.])", answer)
     amounts += re.findall(r"(\d+(?:\.\d+)?)\s*元", answer)
+    amounts += re.findall(r"(?:价格|售价)\s*[:：]\s*(\d+(?:\.\d+)?)(?![\d.])", answer)
     return any(Decimal(amount) == Decimal(price) for amount in amounts)
 
 
